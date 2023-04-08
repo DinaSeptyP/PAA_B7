@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2023 at 03:22 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Apr 08, 2023 at 06:35 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `knex_migrations` (
   `name` varchar(255) DEFAULT NULL,
   `batch` int(11) DEFAULT NULL,
   `migration_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `knex_migrations`
@@ -51,7 +51,7 @@ INSERT INTO `knex_migrations` (`id`, `name`, `batch`, `migration_time`) VALUES
 CREATE TABLE `knex_migrations_lock` (
   `index` int(10) UNSIGNED NOT NULL,
   `is_locked` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `knex_migrations_lock`
@@ -73,16 +73,17 @@ CREATE TABLE `produk` (
   `harga` bigint(20) DEFAULT NULL,
   `stok` int(11) DEFAULT NULL,
   `url_gambar` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`id`, `nama_barang`, `deskripsi`, `harga`, `stok`, `url_gambar`) VALUES
-(3, 'Dark Blue Spotted', 'baju  terkeren untuk lebaran', 24, 20, 'https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/bfb9b2663ed0d902d68f2e28b7e18c7ff4a880c3_xxl-1.jpg'),
-(4, 'ini barang bagus', 'cocok untuk menghabiskan uang hari raya', 34, 12, 'https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/bfb9b2663ed0d902d68f2e28b7e18c7ff4a880c3_xxl-1.jpg'),
-(5, 'Gray Polo-Polo', 'Nyaman untuk bapak-bapak dan anak muda', 34, 11, 'https://www.nicepng.com/png/detail/4-49477_tshirt-grey-t-shirt-png.png');
+(3, 'Dark Blue Spotted', 'baju  terkeren untuk lebaran', 240000, 20, 'https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/bfb9b2663ed0d902d68f2e28b7e18c7ff4a880c3_xxl-1.jpg'),
+(4, 'Blue Shirt', 'cocok untuk menghabiskan uang hari raya', 340000, 12, 'https://cdn.mysagestore.com/867ebe4acefa420750007c6a34158a2d/contents/RCSMU3/thumbnail/big_RCSMU3.jpg'),
+(5, 'Grey Polo T-Shirt', 'Nyaman untuk bapak-bapak dan anak muda', 99000, 11, 'https://www.nicepng.com/png/detail/4-49477_tshirt-grey-t-shirt-png.png'),
+(6, 'Kimono Shirt', '100% Cotton, Made in the USA or Imported', 499999, 5, 'https://www.cultizm.com/media/image/05/50/79/120503225-Kimono-Shirt-Japan-Poplin-Heritage-_01.jpg');
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,7 @@ CREATE TABLE `user` (
   `id` int(10) UNSIGNED NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
@@ -103,7 +104,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `email`, `password`) VALUES
 (1, 'jati@gmail.com', '$2a$10$L3Ik9AVzAxy0.N2Y19gXguIZSWqms8Vp3CuzqXLVEJO1PygO8P5Ae'),
 (2, 'bima@gmail.com', '$2a$10$LAVawyGX9V6Gmqsojrz3Ge1/KZV7JqpHPWbdGTqFJxm.nXLhwgT.e'),
-(3, 'fayza@mail.com', '$2a$10$/jkiMcRGrAwvnbE3ZtKR2uO4KnEdt.5XaNQTEHPXBn.z5SmRdgweS');
+(3, 'fayza@mail.com', '$2a$10$/jkiMcRGrAwvnbE3ZtKR2uO4KnEdt.5XaNQTEHPXBn.z5SmRdgweS'),
+(4, 'admin@gmail.com', '$2a$10$touAnjfXcNdCrsdWw9GJoeaMHjagy9DFfAacayz2VhcGB9NnxvJie');
 
 --
 -- Indexes for dumped tables
@@ -159,7 +161,7 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
