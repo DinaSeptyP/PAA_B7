@@ -177,7 +177,7 @@ function editHandler(id){
                 <div class = "container">
                     <div class = "row text-white g-4">
                         <div class = "col-md-6 col-lg-3">
-                            <a class = "text-uppercase text-decoration-none brand text-white" href = "index.html">Attire</a>
+                            <a class = "text-uppercase text-decoration-none brand text-white" href = "index.html">WarungPedia</a>
                             <p class = "text-white mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum mollitia quisquam veniam odit cupiditate, ullam aut voluptas velit dolor ipsam?</p>
                         </div>
 
@@ -191,17 +191,7 @@ function editHandler(id){
                                 </li>
                                 <li class = "my-3">
                                     <a href = "#" class = "text-white text-decoration-none">
-                                        <i class = "fas fa-chevron-right me-1"></i> Collection
-                                    </a>
-                                </li>
-                                <li class = "my-3">
-                                    <a href = "#" class = "text-white text-decoration-none">
-                                        <i class = "fas fa-chevron-right me-1"></i> Blogs
-                                    </a>
-                                </li>
-                                <li class = "my-3">
-                                    <a href = "#" class = "text-white text-decoration-none">
-                                        <i class = "fas fa-chevron-right me-1"></i> About Us
+                                        <i class = "fas fa-chevron-right me-1"></i> Post Baru
                                     </a>
                                 </li>
                             </ul>
@@ -214,7 +204,7 @@ function editHandler(id){
                                     <i class = "fas fa-map-marked-alt"></i>
                                 </span>
                                 <span class = "fw-light">
-                                    Albert Street, New York, AS 756, United States of America
+                                    Kalimantan Street, Jember, Indonesia
                                 </span>
                             </div>
                             <div class = "d-flex justify-content-start align-items-start my-2">
@@ -222,7 +212,7 @@ function editHandler(id){
                                     <i class = "fas fa-envelope"></i>
                                 </span>
                                 <span class = "fw-light">
-                                    attire.support@gmail.com
+                                    warungpedia.support@gmail.com
                                 </span>
                             </div>
                             <div class = "d-flex justify-content-start align-items-start my-2">
@@ -230,7 +220,7 @@ function editHandler(id){
                                     <i class = "fas fa-phone-alt"></i>
                                 </span>
                                 <span class = "fw-light">
-                                    +9786 6776 236
+                                    +6281 234 567 890
                                 </span>
                             </div>
                         </div>
