@@ -1,6 +1,8 @@
 database yang digunakan adalah mysql (developer menggunakan mysql melalui xampp)
 nama database: paa01fix
 
+npm install next react react-dom
+
 untuk membuat database atau menjalankan knex, jalankan perintah: ./node_modules/.bin/knex
 
 jika knex tidak ditemukan, install terlebih dahulu knex menggunakan perintah: npm install knex mysql
