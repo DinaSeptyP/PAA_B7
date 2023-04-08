@@ -1,11 +1,14 @@
 database yang digunakan adalah mysql (developer menggunakan mysql melalui xampp)
 nama database: paa01fix
 
-npm install next react react-dom
+1. npm install next react react-dom
 
-untuk membuat database atau menjalankan knex, jalankan perintah: ./node_modules/.bin/knex
+2. untuk membuat database atau menjalankan knex, jalankan perintah: ./node_modules/.bin/knex
+jika terdapat error tentang policy, buka windows powershell sebagai administrator lalu jalankan
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+lalu kembali ke terminal vscode untuk menjalankan knex
 
-jika knex tidak ditemukan, install terlebih dahulu knex menggunakan perintah: npm install knex mysql
+3. jika knex tidak ditemukan, install terlebih dahulu knex menggunakan perintah: npm install knex mysql
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
