@@ -3,7 +3,7 @@ nama database: paa01fix
 
 1. npm install next react react-dom
 
-2. untuk membuat database atau menjalankan knex, jalankan perintah: ./node_modules/.bin/knex
+2. untuk membuat database atau menjalankan knex, jalankan perintah: ./node_modules/.bin/knex,
 jika terdapat error tentang policy, buka windows powershell sebagai administrator lalu jalankan
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 lalu kembali ke terminal vscode untuk menjalankan knex
