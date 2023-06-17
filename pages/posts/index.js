@@ -110,13 +110,16 @@ function editHandler(id){
             <br></br>
             <br></br>
             <br></br>
-            {posts.map(post =>
-            (
+            {/* <div style={{
+                display: "flex"
+            }}> */}
             <div>
                 <div class = "collection-list mt-4 row gx-0 gy-3">
+            {posts.map(post =>
+            (
                     <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
                         <div key={post.id} class = "collection-img position-relative">
-                            <img src={`${post.url_gambar}`} style={{maxHeight: "400px", width: "auto"}} class = "w-100"></img>
+                            <img src={`${post.url_gambar}`} style={{height: "400px", width: "auto", objectFit: "cover"}} class = "w-100"></img>
                         </div>
                         <div class = "text-center">
                             <p class = "text-capitalize my-1">{post.nama_barang}</p>
@@ -127,49 +130,50 @@ function editHandler(id){
                             <button onClick={deleteHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}}>Delete</button>
                         </div>
                     </div>
-                    <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
-                        <div key={post.id} class = "collection-img position-relative">
-                            <img src={`${post.url_gambar}`} style={{maxHeight: "400px", width: "auto"}} class = "w-100"></img>
-                        </div>
-                        <div class = "text-center">
-                            <p class = "text-capitalize my-1">{post.nama_barang}</p>
-                            <span class = "fw-bold">Rp {post.harga}</span>
-                        </div>
-                        <div>
-                            <button onClick={editHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease", marginLeft: "30%"}}>Edit</button>
-                            <button onClick={deleteHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}}>Delete</button>
-                        </div>
-                    </div>
-                    <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
-                        <div key={post.id} class = "collection-img position-relative">
-                            <img src={`${post.url_gambar}`} style={{maxHeight: "400px", width: "auto"}} class = "w-100"></img>
-                        </div>
-                        <div class = "text-center">
-                            <p class = "text-capitalize my-1">{post.nama_barang}</p>
-                            <span class = "fw-bold">Rp {post.harga}</span>
-                        </div>
-                        <div>
-                            <button onClick={editHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease", marginLeft: "30%"}}>Edit</button>
-                            <button onClick={deleteHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}}>Delete</button>
-                        </div>
-                    </div>
-                    <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
-                        <div key={post.id} class = "collection-img position-relative">
-                            <img src={`${post.url_gambar}`} style={{maxHeight: "400px", width: "auto"}} class = "w-100"></img>
-                        </div>
-                        <div class = "text-center">
-                            <p class = "text-capitalize my-1">{post.nama_barang}</p>
-                            <span class = "fw-bold">Rp {post.harga}</span>
-                        </div>
-                        <div>
-                            <button onClick={editHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease", marginLeft: "30%"}}>Edit</button>
-                            <button onClick={deleteHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}}>Delete</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    // <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                    //     <div key={post.id} class = "collection-img position-relative">
+                    //         <img src={`${post.url_gambar}`} style={{maxHeight: "400px", width: "auto"}} class = "w-100"></img>
+                    //     </div>
+                    //     <div class = "text-center">
+                    //         <p class = "text-capitalize my-1">{post.nama_barang}</p>
+                    //         <span class = "fw-bold">Rp {post.harga}</span>
+                    //     </div>
+                    //     <div>
+                    //         <button onClick={editHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease", marginLeft: "30%"}}>Edit</button>
+                    //         <button onClick={deleteHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}}>Delete</button>
+                    //     </div>
+                    // </div>
+                    // <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                    //     <div key={post.id} class = "collection-img position-relative">
+                    //         <img src={`${post.url_gambar}`} style={{maxHeight: "400px", width: "auto"}} class = "w-100"></img>
+                    //     </div>
+                    //     <div class = "text-center">
+                    //         <p class = "text-capitalize my-1">{post.nama_barang}</p>
+                    //         <span class = "fw-bold">Rp {post.harga}</span>
+                    //     </div>
+                    //     <div>
+                    //         <button onClick={editHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease", marginLeft: "30%"}}>Edit</button>
+                    //         <button onClick={deleteHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}}>Delete</button>
+                    //     </div>
+                    // </div>
+                    // <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                    //     <div key={post.id} class = "collection-img position-relative">
+                    //         <img src={`${post.url_gambar}`} style={{maxHeight: "400px", width: "auto"}} class = "w-100"></img>
+                    //     </div>
+                    //     <div class = "text-center">
+                    //         <p class = "text-capitalize my-1">{post.nama_barang}</p>
+                    //         <span class = "fw-bold">Rp {post.harga}</span>
+                    //     </div>
+                    //     <div>
+                    //         <button onClick={editHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease", marginLeft: "30%"}}>Edit</button>
+                    //         <button onClick={deleteHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}}>Delete</button>
+                    //     </div> 
+                    // </div>
             )
             )}
+            </div>
+        </div>
+            {/* </div> */}
             <br></br>
             <br></br>
             <br></br>
@@ -177,7 +181,7 @@ function editHandler(id){
                 <div class = "container">
                     <div class = "row text-white g-4">
                         <div class = "col-md-6 col-lg-3">
-                            <a class = "text-uppercase text-decoration-none brand text-white" href = "index.html">WarungPedia</a>
+                            <a class = "text-uppercase text-decoration-none brand text-white" href = "#header">WarungPedia</a>
                             <p class = "text-white mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum mollitia quisquam veniam odit cupiditate, ullam aut voluptas velit dolor ipsam?</p>
                         </div>
 
