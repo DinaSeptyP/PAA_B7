@@ -27,6 +27,9 @@ export default function PostCreate(props){
         setStatus('loading');
 
         const { token } = props
+        console.log("halo")
+        console.log(typeof(JSON.stringify(fields)))
+        console.log("halo")
 
         const create = await fetch('/api/posts/create',{
             method: 'POST',
@@ -68,34 +71,51 @@ export default function PostCreate(props){
                                     type="text"
                                     placeholder="nama_barang"
                                     name="nama_barang"
-                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    required>
                                 </input>
-                                <br></br>
                                 <input
                                     onChange={fieldHandler.bind(this)}
                                     type="text"
                                     placeholder="deskripsi"
                                     name="deskripsi"
-                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    required>
                                 </input>
-                                <br></br>
-                                <br></br>
                                 <input
                                     onChange={fieldHandler.bind(this)}
                                     type="number"
-                                    placeholder="harga"
+                                    min={1}
+                                    placeholder="harga per unit"
                                     name="harga"
-                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    required>
                                 </input>
-                                <br></br>
-
-                                <br></br>
                                 <input
                                     onChange={fieldHandler.bind(this)}
                                     type="number"
-                                    placeholder="stok"
+                                    min={1}
+                                    placeholder="estimasi pengerjaan (hari)"
+                                    name="estimasi"
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    required>
+                                </input>
+                                <input
+                                    onChange={fieldHandler.bind(this)}
+                                    type="datetime-local"
+                                    placeholder="batas tawaran"
+                                    name="batas_tawaran"
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    required>
+                                </input>
+                                <input
+                                    onChange={fieldHandler.bind(this)}
+                                    type="number"
+                                    min={1}
+                                    placeholder="total unit"
                                     name="stok"
-                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    required>
                                 </input>
                                 <br></br>
                                 
@@ -104,7 +124,8 @@ export default function PostCreate(props){
                                     type="text"
                                     placeholder="url_gambar"
                                     name="url_gambar"
-                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    required>
                                 </input>
                                 <br></br>
                                 <br></br>

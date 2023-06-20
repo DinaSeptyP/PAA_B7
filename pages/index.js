@@ -39,15 +39,7 @@ export default function Home(){
           </div>
       </nav>
 
-      {/* <header id = "header" class = "vh-100 carousel slide" data-bs-ride = "carousel" style = "padding-top: 104px;">
-        <div class = "container h-100 d-flex align-items-center carousel-inner">
-            <div class = "text-center carousel-item active">
-                <h2 class = "text-capitalize text-white">best collection</h2>
-                <h1 class = "text-uppercase py-2 fw-bold text-white">new arrivals</h1>
-                <a href = "auth\login.html" class = "btn mt-3 text-uppercase">shop now</a>
-            </div>
-        </div>
-      </header> */}
+
       <div>
         <img src = "images/about_us.jpg" style={{width: "200px"}} alt = ""></img>
       </div>
@@ -57,7 +49,9 @@ export default function Home(){
                 <h2 class = "text-capitalize text-white">welcome</h2>
                 <h1 class = "text-uppercase py-2 fw-bold text-white">new arrivals</h1>
                 <center><button style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px",
-                fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}} type="button" onClick={()=>router.push('/auth/login')}>MULAI SEKARANG</button></center>
+                fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}} type="button" onClick={()=>router.push('/customer/auth/login')}>AS CUSTOMER</button></center>
+                <center><button style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px",
+                fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}} type="button" onClick={()=>router.push('/auth/login')}>AS ADMIN</button></center>
             </div>
         </div>
       

@@ -35,8 +35,13 @@ export default function PostEdit(props){
         deskripsi: post.deskripsi,
         harga: post.harga,
         stok: post.stok,
+        estimasi: post.estimasi,
+        batas_tawaran: post.batas_tawaran,
         url_gambar: post.url_gambar
     });
+    // console.log(Date.parse(post.batas_tawaran))
+    // console.log("hallo")
+    // console.log("hallo")
 
     const [status, setStatus] = useState('normal')
 
@@ -63,7 +68,7 @@ export default function PostEdit(props){
         setStatus('Success');
 
         Router.push('/posts')
-    }
+    } 
     
     function fieldHandler(e){
         const name = e.target.getAttribute('name');
@@ -75,6 +80,9 @@ export default function PostEdit(props){
     }
     
     return (
+        console.log(typeof (post.batas_tawaran)),
+        console.log((post.batas_tawaran)),
+        console.log((post.batas_tawaran).replace('Z','')),
         <div style={{fontFamily: "'Poppins', sans-serif", margin: 0, padding: 0, boxSizing: "border-box", backgroundColor: "#e2e3e5", colorOpacity: "0.2", outline: "none", border: "none", textDecoration: "none", textTransform: "capitalize", transition: "all .2s linear"}}>
             <div class="box" style={{height: "100vh"}}>
                 <div class="container" style={{backgroundColor:"white", borderRadius: "10px", display: "relative", alignItems: "center", height: "600px", width: "55%", transition: "height 0.2s ease", boxShadow: "0 5px 10px rgba(0, 0, 0, 0.1)", position : "absolute", top:"50%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)"}}>
@@ -116,6 +124,26 @@ export default function PostEdit(props){
                     placeholder="stok"
                     name="stok"
                     defaultValue={post.stok}
+                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                </input>
+                <br></br>
+                <br></br>
+                <input
+                    onChange={fieldHandler.bind(this)}
+                    type="number"
+                    placeholder="estimasi"
+                    name="estimasi"
+                    defaultValue={post.estimasi}
+                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                </input>
+                <br></br>
+                <br></br>
+                <input
+                    onChange={fieldHandler.bind(this)}
+                    type="datetime-local"
+                    placeholder="batas tawaran"
+                    name="batas_tawaran"
+                    defaultValue={post.batas_tawaran}
                     style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
                 </input>
                 <br></br>

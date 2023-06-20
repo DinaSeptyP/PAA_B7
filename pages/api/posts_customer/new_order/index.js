@@ -1,25 +1,21 @@
 import knex from 'knex';
-import db from '../../../libs/db';
-import authorization from '../../../middlewares/authorization';
+import db from '../../../../libs/db';
+import authorization from '../../../../middlewares/authorization';
 
 export default async function handler(req,res){
     if(req.method !== 'POST') return res.status(405).end();
     
     const auth = await authorization(req,res);
 
-    const { nama_barang, deskripsi, harga, stok, estimasi, batas_tawaran, url_gambar } = req.body;
+    const { id_produk, id_customer, tanggal_selesai } = req.body;
 
-    const create = await db('produk').insert({
-        nama_barang,
-        deskripsi,
-        harga,
-        stok,
-        estimasi,
-        batas_tawaran,
-        url_gambar
+    const create = await db('pesanan').insert({
+        id_produk,
+        id_customer,
+        tanggal_selesai
     });
 
-    const createdData = await db('produk');
+    const createdData = await db('pesanan');
     //where('id', create).first();
     //try this: https://gist.github.com/ntry/8a87ecb8427f044211dc3bfa390ff971#file-bootstrap-tutorial-gulp4-gulpfile-js
     //from discusstion: https://github.com/creativetimofficial/argon-design-system/issues/67

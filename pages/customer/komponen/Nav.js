@@ -21,7 +21,7 @@ export default function Nav(){
 
             <nav class = "navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
                 <div class = "container">
-                    <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "index.html">
+                    <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "#">
                         <span class = "text-uppercase fw-lighter ms-2">WarungPedia</span>
                     </a>
 
@@ -32,10 +32,13 @@ export default function Nav(){
                     <div class = "collapse navbar-collapse order-lg-1" id = "navMenu">
                         <ul style={{marginLeft: "0"}} class = "navbar-nav mx-auto text-center">
                             <li class = "nav-item px-2 py-2">
-                                <a class = "nav-link text-uppercase text-dark" href = "/posts">home</a>
+                                <a class = "nav-link text-uppercase text-dark" href = "/customer/posts">home</a>
                             </li>
-                            <li class = "nav-item px-2 py-2">
+                            {/* <li class = "nav-item px-2 py-2">
                                 <a class = "nav-link text-uppercase text-dark" href = "/posts/create">post baru</a>
+                            </li> */}
+                            <li class = "nav-item px-2 py-2">
+                                <a class = "nav-link text-uppercase text-dark" href = "/customer/pesanan">pesanan</a>
                             </li>
                         </ul>
                         <ul class = "navbar-nav">
