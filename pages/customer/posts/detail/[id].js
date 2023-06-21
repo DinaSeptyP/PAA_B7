@@ -77,6 +77,7 @@ export default function NewOrderAdd(props){
         id_produk: post.id,
         id_customer: id_customer,
         tanggal_selesai: currentDate,
+        total_harga: (post.stok * post.harga)
         // stok: post.stok,
         // estimasi: post.estimasi,
         // batas_tawaran: post.batas_tawaran, 
@@ -137,6 +138,7 @@ export default function NewOrderAdd(props){
                             <p class = "text-capitalize my-1">NAMA: {post.nama_barang}</p>
                             <p class = "fw-bold">HARGA/ITEM: Rp {post.harga}</p>
                             <p class = "text-capitalize my-1">TOTAL ITEM: {post.stok}</p>
+                            <p class = "text-capitalize my-1">TOTAL HARGA: {(post.stok * post.harga)}</p>
                             <p class = "text-capitalize my-1">ESTIMASI: {post.estimasi} Hari</p>
                             <p class = "text-capitalize my-1">BATAS TAWARAN: {post.batas_tawaran}</p>
                             <p class = "text-capitalize my-1">DESKRIPSI: {post.deskripsi}</p>
