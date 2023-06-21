@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { unauthPage } from '../../middlewares/authorizationPage';
+import { unauthPage } from '../../../middlewares/authorizationPage';
 import Link from 'next/link';
 // import { Router } from 'next/router';
 import Router from 'next/router';
@@ -24,7 +24,7 @@ export default function Register(){
         
         setStatus('loading');
 
-        const registerReq = await fetch('/api/auth/register',{
+        const registerReq = await fetch('/api/auth_customer/register',{
             method: 'POST',
             body: JSON.stringify(fields),
             headers:{
@@ -56,7 +56,7 @@ export default function Register(){
             <link rel = "stylesheet" href = "bootstrap-5.0.2-dist/css/bootstrap.min.css"></link>
             <link rel = "stylesheet" href = "style.css"></link>
             <div class="box" style={{height: "100vh"}}>
-                <div class="container" style={{backgroundColor:"white", borderRadius: "10px", display: "relative", alignItems: "center", height: "450px", width: "30%", transition: "height 0.2s ease", boxShadow: "0 5px 10px rgba(0, 0, 0, 0.1)", position : "absolute", top:"50%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)"}}>
+                <div class="container" style={{backgroundColor:"white", borderRadius: "10px", display: "relative", alignItems: "center", height: "520px", width: "30%", transition: "height 0.2s ease", boxShadow: "0 5px 10px rgba(0, 0, 0, 0.1)", position : "absolute", top:"50%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)"}}>
                     <div class="forms" style={{alignItems: "center", position : "absolute", top:"50%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)", height: "auto", width: "70%"}}>
                         <div class="form login" >
                             <h1 style={{position: "relative", fontSize: "27px", fontWeight: 600}}>REGISTRASI</h1>
@@ -64,7 +64,10 @@ export default function Register(){
                             <br></br>
                             <form onSubmit={registerHandler.bind(this)}>
                             <div class="input-field">
-                                <input name="email" type="text" onChange={fieldHandler.bind(this)} placeholder="Email" required style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}/>
+                                <input name="username" type="text" onChange={fieldHandler.bind(this)} placeholder="Username" required style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}/>
+                            </div>
+                            <div class="input-field">
+                                <input name="email" type="email" onChange={fieldHandler.bind(this)} placeholder="Email" required style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}/>
                             </div>
                             <div class="input-field">
                                 <input name="password" type="password" onChange={fieldHandler.bind(this)} placeholder="Password" required style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}/>
@@ -74,7 +77,7 @@ export default function Register(){
                                     Daftar
                                 </button>
                                 <center style={{marginTop: "25px"}}>
-                                    <div> Status : {status}</div>
+                                    <div>{status}</div>
                                     <p>Sudah memiliki akun? <Link href={"login"} style={{fontWeight: "bold", color: "#e5345b"}}>masuk</Link></p>
                                 </center>
                             </form>

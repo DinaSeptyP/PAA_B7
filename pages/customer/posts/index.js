@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { authPage } from '../../middlewares/authorizationPage'
+import { authPage } from '../../../middlewares/authorizationPage'
 import Router from 'next/router';
-import Nav from '../../komponen/Nav';
+import Nav from '../komponen/Nav';
 
 export async function getServerSideProps(ctx){
     const { token } = await authPage(ctx);
@@ -57,7 +57,7 @@ async function deleteHandler(id, e){
             <h4>{post.stok}</h4>
             <img src={`${post.url_gambar}`}/>
             <div>
-                <button onClick={editHandler.bind(this, post.id)}>Edit</button>
+                <button onClick={applyHandler.bind(this, post.id)}>Edit</button>
                 <button onClick={deleteHandler.bind(this, post.id)}>Delete</button>
             </div>
 
@@ -68,8 +68,8 @@ async function deleteHandler(id, e){
 )}
 
 
-function editHandler(id){
-    Router.push('/posts/edit/'+id)
+function applyHandler(id){
+    Router.push('/customer/posts/detail/'+id)
 }
     return (
         <>
@@ -81,7 +81,7 @@ function editHandler(id){
 
             <Nav class = "navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
                 <div class = "container">
-                    <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "index.js">
+                    <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "#">
                         <span class = "text-uppercase fw-lighter ms-2">Nama</span>
                     </a>
 
@@ -95,7 +95,7 @@ function editHandler(id){
                                 <a class = "nav-link text-uppercase text-dark" href = "/posts">home</a>
                             </li>
                             <li class = "nav-item px-2 py-2">
-                                <a class = "nav-link text-uppercase text-dark" href = "/posts/create">post baru</a>
+                                <a class = "nav-link text-uppercase text-dark" href = "#">Lihat pesanan</a>
                             </li>
                         </ul>
                         <ul class = "navbar-nav">
@@ -113,32 +113,27 @@ function editHandler(id){
             {/* <div style={{
                 display: "flex"
             }}> */}
-            <br></br>
-            <h1  class="col-md-6 col-lg-4 col-xl-3 p-2 best center mx-auto text-black text-decoration-none text-center">POST</h1>
             <div>
                 <div class = "collection-list mt-4 row gx-0 gy-3">
             {posts.map(post =>
             (
-                <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
-                    <div key={post.id} class="collection-img position-relative">
-                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", height: "100%" }}>
-                        <img src={`${post.url_gambar}`} style={{ height: "400px", width: "auto", objectFit: "cover" }} class="w-100" />
-                        <div class="text-center">
-                            <p class="text-capitalize my-1">{post.nama_barang}</p>
-                            <span class="fw-bold">Rp {post.harga.toLocaleString()}</span>
+                    <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                        <div key={post.id} class = "collection-img position-relative">
+                            <img src={`${post.url_gambar}`} style={{height: "400px", width: "auto", objectFit: "cover"}} class = "w-100"></img>
                         </div>
-                        <div style={{ marginTop: "auto" }}>
-                            <button onClick={editHandler.bind(this, post.id)} style={{ color: "#fff", fontSize: "17px", height: "45px", padding: "0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease", marginBottom: "10px" }}>Edit</button>
-                            <button onClick={deleteHandler.bind(this, post.id)} style={{ color: "#fff", fontSize: "17px", height: "45px", padding: "0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease" }}>Delete</button>
+                        <div class = "text-center">
+                            <p class = "text-capitalize my-1">{post.nama_barang}</p>
+                            <p class = "fw-bold">Harga per item: Rp {post.harga}</p>
+                            <p class = "fw-bold">total item: {post.stok}</p>
                         </div>
+                        <div>
+                            <button onClick={applyHandler.bind(this, post.id)} style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease", marginLeft: "30%"}}>Detail Produk</button>
                         </div>
                     </div>
-                </div>
             )
             )}
             </div>
         </div>
-            {/* </div> */}
             <br></br>
             <br></br>
             <br></br>

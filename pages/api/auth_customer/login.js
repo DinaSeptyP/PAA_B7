@@ -7,7 +7,7 @@ export default async function handler(req, res){
 
     const {email, password} = req.body;
 
-    const checkUser = await db('user').where({email}).first();
+    const checkUser = await db('customer').where({email}).first();
 
     if(!checkUser) return (res.status(401).end())
 
@@ -18,7 +18,7 @@ export default async function handler(req, res){
     console.log(checkPassword)
 
     const token = jwt.sign({
-        id: checkUser.id,
+        id: checkUser.id_customer,
         email: checkUser.email
         },
         'NothingToLose',

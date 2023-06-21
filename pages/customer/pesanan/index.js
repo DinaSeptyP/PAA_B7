@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
-import { authPage } from '../../middlewares/authorizationPage'
+import React, { useState, useEffect } from 'react';
+import { authPage } from '../../../middlewares/authorizationPage'
 import Router from 'next/router';
-import Nav from '../../komponen/Nav';
+import Nav from '../komponen/Nav';
+const jwt = require('jsonwebtoken');
 
 export async function getServerSideProps(ctx){
     const { token } = await authPage(ctx);
 
-    const postReq = await fetch('http://localhost:3000/api/posts/',
-        {headers:{'Authorization':'Bearer '+ token}})
+    const decodeToken = jwt.verify(token, 'NothingToLose')
+    const decodeTokenID = decodeToken['id']
+    const postReq = await fetch('http://localhost:3000/api/pesanan_customer/'+decodeTokenID,
+        {method:"GET",headers:{'Authorization':'Bearer '+ token}})
 
     const posts = await postReq.json();
     // console.log(posts)
@@ -21,56 +24,55 @@ export async function getServerSideProps(ctx){
 export default function PostIndex(props){
 
 const [posts, setPosts] = useState(props.posts);
-// console.log(posts)
+const Countdown = ({ deadline }) => {
+    const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const targetDate = new Date(deadline).getTime();
+        const distance = targetDate - now;
+  
+        // Calculate remaining time in days, hours, minutes, and seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+        // Update the countdown state
+        setCountdown({ days, hours, minutes, seconds });
+  
+        // Clear the interval when the countdown reaches zero
+        if (distance <= 0) {
+          clearInterval(interval);
+          setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        }
+      }, 1000);
+  
+      // Clean up the interval on component unmount
+      return () => clearInterval(interval);
+    }, [deadline]);
+  
+    return (
+      <div>
+        <p>Countdown: {countdown.days}d {countdown.hours}h {countdown.minutes}m {countdown.seconds}s</p>
+      </div>
+    );
+  };
 
-async function deleteHandler(id, e){
-    e.preventDefault();
-
-    const {token} = props;
-
-    const ask = confirm('Apakah yakin untuk menghapus?');
-    if(ask) {
-        const deletePost = await fetch('/api/posts/delete/' + id, {
-          method: 'DELETE',
-          headers: {
-              'Authorization': 'Bearer ' + token
-          }
-        });
-    
-        const res = await deletePost.json();
-        
-        const postsFiltered = posts.filter(post => {
-            return post.id !== id && post;
-        })
-        
-        setPosts(postsFiltered);
-    
-    };
-
-}
 { posts.map(post =>
     (
-        <div key={post.id}>
-            <h1>{post.nama_barang}</h1>
-            <p>{post.deskripsi}</p>
-            <h3>{post.harga}</h3>
-            <h4>{post.stok}</h4>
-            <img src={`${post.url_gambar}`}/>
-            <div>
-                <button onClick={editHandler.bind(this, post.id)}>Edit</button>
-                <button onClick={deleteHandler.bind(this, post.id)}>Delete</button>
-            </div>
-
+        <div key={post.id_pesanan}>
+            <h1>{post.id_customer}</h1>
+            <p>{post.tanggal_selesai}</p>
+            <h3>{post.status}</h3>
+            <h4>{post.id_produk}</h4>
             <hr />
             <br></br>
         </div>
     )
 )}
 
-
-function editHandler(id){
-    Router.push('/posts/edit/'+id)
-}
     return (
         <>
         <div>
@@ -81,8 +83,8 @@ function editHandler(id){
 
             <Nav class = "navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
                 <div class = "container">
-                    <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "index.js">
-                        <span class = "text-uppercase fw-lighter ms-2">Nama</span>
+                    <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "#">
+                        <span class = "text-uppercase fw-lighter ms-2">INI ADALAH PESANAN</span>
                     </a>
 
                     <button class = "navbar-toggler border-0" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
@@ -95,7 +97,7 @@ function editHandler(id){
                                 <a class = "nav-link text-uppercase text-dark" href = "/posts">home</a>
                             </li>
                             <li class = "nav-item px-2 py-2">
-                                <a class = "nav-link text-uppercase text-dark" href = "/posts/create">post baru</a>
+                                <a class = "nav-link text-uppercase text-dark" href = "#">INI ADALAH PESANAN</a>
                             </li>
                         </ul>
                         <ul class = "navbar-nav">
@@ -113,32 +115,33 @@ function editHandler(id){
             {/* <div style={{
                 display: "flex"
             }}> */}
-            <br></br>
-            <h1  class="col-md-6 col-lg-4 col-xl-3 p-2 best center mx-auto text-black text-decoration-none text-center">POST</h1>
             <div>
                 <div class = "collection-list mt-4 row gx-0 gy-3">
-            {posts.map(post =>
-            (
-                <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
-                    <div key={post.id} class="collection-img position-relative">
-                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", height: "100%" }}>
-                        <img src={`${post.url_gambar}`} style={{ height: "400px", width: "auto", objectFit: "cover" }} class="w-100" />
+                {posts.map((post, index) => (
+                    <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
+                        <div key={post.id_pesanan} class="collection-img position-relative">
+                        {/* <img src={`${post.url_gambar}`} style={{ height: "400px", width: "auto", objectFit: "cover" }} class="w-100"></img> */}
+                        </div>
                         <div class="text-center">
-                            <p class="text-capitalize my-1">{post.nama_barang}</p>
-                            <span class="fw-bold">Rp {post.harga.toLocaleString()}</span>
+                        <p class="text-capitalize my-1 fw-bold">Pesanan {index + 1}</p>
+                        <div key={post.id} class="collection-img position-relative">
+                            <img src={`${post.url_gambar}`} style={{ height: "400px", width: "auto", objectFit: "cover" }} class="w-100" />
                         </div>
-                        <div style={{ marginTop: "auto" }}>
-                            <button onClick={editHandler.bind(this, post.id)} style={{ color: "#fff", fontSize: "17px", height: "45px", padding: "0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease", marginBottom: "10px" }}>Edit</button>
-                            <button onClick={deleteHandler.bind(this, post.id)} style={{ color: "#fff", fontSize: "17px", height: "45px", padding: "0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease" }}>Delete</button>
+                        <p class="text-capitalize my-1">Id Customer: {post.id_customer}</p>
+                        <p class="fw-bold">Id produk: {post.id_produk}</p>
+                        <p class="fw-bold">Nama Barang: {post.nama_barang}</p>
+                        <p className="text-capitalize my-1">Total Harga: Rp {post.total_harga.toLocaleString()}</p>
+                        <p className="fw-bold">Tenggat Waktu: {Date(post.tanggal_selesai)}</p>
+                        <Countdown deadline={post.tanggal_selesai}/>
+                        <p class="fw-bold">Status: {post.status}</p>
                         </div>
+                        <div>
+                        {/* <button onClick={applyHandler.bind(this, post.id)} style={{ color: "#fff", fontSize: "17px", height: "45px", padding: "0 px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease", marginLeft: "30%" }}>Detail Produk</button> */}
                         </div>
                     </div>
-                </div>
-            )
-            )}
+                    ))}
             </div>
         </div>
-            {/* </div> */}
             <br></br>
             <br></br>
             <br></br>
@@ -160,7 +163,7 @@ function editHandler(id){
                                 </li>
                                 <li class = "my-3">
                                     <a href = "#" class = "text-white text-decoration-none">
-                                        <i class = "fas fa-chevron-right me-1"></i> Post Baru
+                                        <i class = "fas fa-chevron-right me-1"></i> Pesanan
                                     </a>
                                 </li>
                             </ul>
