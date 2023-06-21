@@ -27,12 +27,12 @@ export default function Home(){
                           <a class = "nav-link text-uppercase text-dark" href = "#header">home</a>
                       </li>
                       <li class = "nav-item px-2 py-2">
-                          <a class = "nav-link text-uppercase text-dark" href = "#about">about us</a>
+                          <a class = "nav-link text-uppercase text-dark" href = "/dashboard/about">about us</a>
                       </li>
                   </ul>
                   <ul class = "navbar-nav">
                     <li class = "nav-item px-2 py-2 border-0">
-                            <a class = "nav-link text-uppercase text-dark" href = "account.html">account</a>
+                            <a class = "nav-link text-uppercase text-dark" href = "/customer/auth/login">account</a>
                     </li>
                   </ul>
               </div>
@@ -44,16 +44,16 @@ export default function Home(){
         <img src = "images/about_us.jpg" style={{width: "200px"}} alt = ""></img>
       </div>
       <div style={{backgroundColor: "#343a40", alignItems: "center", position : "absolute", top:"50%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)", height: "auto"}} class = "container h-100 d-flex align-items-center carousel-inner">
-            <div class = "text-center carousel-item active">
-              <br></br><br></br>
-                <h2 class = "text-capitalize text-white">welcome</h2>
-                <h1 class = "text-uppercase py-2 fw-bold text-white">new arrivals</h1>
-                <center><button style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px",
-                fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}} type="button" onClick={()=>router.push('/customer/auth/login')}>AS CUSTOMER</button></center>
-                <center><button style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px",
-                fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}} type="button" onClick={()=>router.push('/auth/login')}>AS ADMIN</button></center>
-            </div>
+        <div class = "text-center carousel-item active">
+          <br></br><br></br>
+            <h2 class = "text-capitalize text-white">welcome</h2>
+            <h1 class = "text-uppercase py-2 fw-bold text-white">new arrivals</h1>
+            <center><button style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px",
+            fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}} type="button" onClick={()=>router.push('/customer/auth/login')}>CUSTOMER</button></center>
+            <center><button style={{color: "#fff", fontSize: "17px", height:"45px", padding:"0 px",
+            fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease"}} type="button" onClick={()=>router.push('/auth/login')}>ADMIN</button></center>
         </div>
+      </div>
       
     </div>
     </>

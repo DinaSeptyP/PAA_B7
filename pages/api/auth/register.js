@@ -23,7 +23,7 @@ if(req.method !== 'POST') return res.status(405).end();
 
     res.status(200);
     res.json({
-        message: 'user berhasil ditambahkan',
+        message: 'admin berhasil ditambahkan',
         data: registerdUser
     })
 }

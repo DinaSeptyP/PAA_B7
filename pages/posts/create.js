@@ -61,17 +61,17 @@ export default function PostCreate(props){
     return (
         <div style={{fontFamily: "'Poppins', sans-serif", margin: 0, padding: 0, boxSizing: "border-box", backgroundColor: "#e2e3e5", colorOpacity: "0.2", outline: "none", border: "none", textDecoration: "none", textTransform: "capitalize", transition: "all .2s linear"}}>
             <div class="box" style={{height: "100vh"}}>
-                <div class="container" style={{backgroundColor:"white", borderRadius: "10px", display: "relative", alignItems: "center", height: "600px", width: "55%", transition: "height 0.2s ease", boxShadow: "0 5px 10px rgba(0, 0, 0, 0.1)", position : "absolute", top:"50%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)"}}>
+                <div class="container" style={{backgroundColor:"white", borderRadius: "10px", display: "relative", alignItems: "center", height: "650px", width: "55%", transition: "height 0.2s ease", boxShadow: "0 5px 10px rgba(0, 0, 0, 0.1)", position : "absolute", top:"55%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)"}}>
                     <div class="forms" style={{alignItems: "center", position : "absolute", top:"50%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)", height: "auto", width: "70%"}}>
                         <div class="form login" >
-                            <h1 style={{position: "relative", fontSize: "27px", fontWeight: 600}}>CREATE A POST</h1>
+                            <h1 style={{position: "relative", fontSize: "27px", fontWeight: 600}}>BUAT PRODUK BARU</h1>
                             <form onSubmit={createHandler.bind(this)}>
                                 <input
                                     onChange={fieldHandler.bind(this)}
                                     type="text"
-                                    placeholder="nama_barang"
+                                    placeholder="nama barang"
                                     name="nama_barang"
-                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}
                                     required>
                                 </input>
                                 <input
@@ -79,7 +79,7 @@ export default function PostCreate(props){
                                     type="text"
                                     placeholder="deskripsi"
                                     name="deskripsi"
-                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}
                                     required>
                                 </input>
                                 <input
@@ -88,7 +88,7 @@ export default function PostCreate(props){
                                     min={1}
                                     placeholder="harga per unit"
                                     name="harga"
-                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}
                                     required>
                                 </input>
                                 <input
@@ -97,7 +97,7 @@ export default function PostCreate(props){
                                     min={1}
                                     placeholder="estimasi pengerjaan (hari)"
                                     name="estimasi"
-                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}
                                     required>
                                 </input>
                                 <input
@@ -105,7 +105,7 @@ export default function PostCreate(props){
                                     type="datetime-local"
                                     placeholder="batas tawaran"
                                     name="batas_tawaran"
-                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}
                                     required>
                                 </input>
                                 <input
@@ -114,7 +114,7 @@ export default function PostCreate(props){
                                     min={1}
                                     placeholder="total unit"
                                     name="stok"
-                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}
                                     required>
                                 </input>
                                 <br></br>
@@ -122,9 +122,9 @@ export default function PostCreate(props){
                                 <input
                                     onChange={fieldHandler.bind(this)}
                                     type="text"
-                                    placeholder="url_gambar"
+                                    placeholder="url gambar"
                                     name="url_gambar"
-                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}
+                                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}
                                     required>
                                 </input>
                                 <br></br>

@@ -10,7 +10,7 @@ export default async function handler(req, res){
 
     console.log(auth)
 
-    const posts = await db('produk').where('status', 100);
+    const posts = await db('produk');
     res.status(200);
     res.json({
         message: 'posts data',

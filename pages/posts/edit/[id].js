@@ -85,7 +85,7 @@ export default function PostEdit(props){
         console.log((post.batas_tawaran).replace('Z','')),
         <div style={{fontFamily: "'Poppins', sans-serif", margin: 0, padding: 0, boxSizing: "border-box", backgroundColor: "#e2e3e5", colorOpacity: "0.2", outline: "none", border: "none", textDecoration: "none", textTransform: "capitalize", transition: "all .2s linear"}}>
             <div class="box" style={{height: "100vh"}}>
-                <div class="container" style={{backgroundColor:"white", borderRadius: "10px", display: "relative", alignItems: "center", height: "600px", width: "55%", transition: "height 0.2s ease", boxShadow: "0 5px 10px rgba(0, 0, 0, 0.1)", position : "absolute", top:"50%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)"}}>
+                <div class="container" style={{backgroundColor:"white", borderRadius: "10px", display: "relative", alignItems: "center", height: "700px", width: "55%", transition: "height 0.2s ease", boxShadow: "0 5px 10px rgba(0, 0, 0, 0.1)", position : "absolute", top:"56%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)"}}>
                     <div class="forms" style={{alignItems: "center", position : "absolute", top:"50%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)", height: "auto", width: "70%"}}>
                         <div class="form login" >
                         <h1 style={{position: "relative", fontSize: "27px", fontWeight: 600}}>EDIT POSTINGAN</h1>
@@ -97,7 +97,7 @@ export default function PostEdit(props){
                     placeholder="nama_barang"
                     name="nama_barang"
                     defaultValue={post.nama_barang}
-                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}>
                 </input>
                 <br></br>
                 <input
@@ -106,7 +106,7 @@ export default function PostEdit(props){
                     placeholder="deskripsi"
                     name="deskripsi"
                     defaultValue={post.deskripsi}
-                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}>
                 </input>
                 <br></br>
                 <input
@@ -115,7 +115,7 @@ export default function PostEdit(props){
                     placeholder="harga"
                     name="harga"
                     defaultValue={post.harga}
-                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}>
                 </input>
                 <br></br>
                 <input
@@ -124,7 +124,7 @@ export default function PostEdit(props){
                     placeholder="stok"
                     name="stok"
                     defaultValue={post.stok}
-                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}>
                 </input>
                 <br></br>
                 <br></br>
@@ -134,7 +134,7 @@ export default function PostEdit(props){
                     placeholder="estimasi"
                     name="estimasi"
                     defaultValue={post.estimasi}
-                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}>
                 </input>
                 <br></br>
                 <br></br>
@@ -144,7 +144,7 @@ export default function PostEdit(props){
                     placeholder="batas tawaran"
                     name="batas_tawaran"
                     defaultValue={post.batas_tawaran}
-                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}>
                 </input>
                 <br></br>
                 <input
@@ -153,7 +153,7 @@ export default function PostEdit(props){
                     placeholder="url_gambar"
                     name="url_gambar"
                     defaultValue={post.url_gambar}
-                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}>
+                    style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}>
                 </input>
                 <br></br>
                 <br></br>
