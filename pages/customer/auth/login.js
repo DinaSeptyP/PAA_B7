@@ -66,15 +66,15 @@ export default function Login(){
                 <div class="container" style={{backgroundColor:"white", borderRadius: "10px", display: "relative", alignItems: "center", height: "450px", width: "30%", transition: "height 0.2s ease", boxShadow: "0 5px 10px rgba(0, 0, 0, 0.1)", position : "absolute", top:"50%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)"}}>
                     <div class="forms" style={{alignItems: "center", position : "absolute", top:"50%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)", height: "auto", width: "70%"}}>
                         <div class="form login" >
+                            <h1 style={{position: "relative", fontSize: "27px", fontWeight: 600}}>=== HELLO CUSTOMER ===</h1>
                             <h1 style={{position: "relative", fontSize: "27px", fontWeight: 600}}>LOGIN</h1>
-                            <h1 class="text-lowercase" style={{position: "relative", fontSize: "17px", fontWeight: 600}}>sebagai customer</h1>
                             <br></br>
                             <form onSubmit={loginHandler.bind(this)}>
                             <div class="input-field">
-                                <input name="email" type="text" onChange={fieldHandler.bind(this)} placeholder="Email" required style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}/>
+                                <input name="email" type="text" onChange={fieldHandler.bind(this)} placeholder="Email" required style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}/>
                             </div>
                             <div class="input-field">
-                                <input name="password" type="password" onChange={fieldHandler.bind(this)} placeholder="Password" required style={{position: "relative", height: "50px", width: "100%", marginTop: "15px", paddingLeft: "10px"}}/>
+                                <input name="password" type="password" onChange={fieldHandler.bind(this)} placeholder="Password" required style={{position: "relative", height: "50px", width: "100%", marginTop: "15px"}}/>
                             </div>
                                 <br></br>
                                 <button type="submit" style={{fontWeight: "20px", border: "none", padding: "8px", color: "#fff", fontSize: "17px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease", width: "100%"}}>

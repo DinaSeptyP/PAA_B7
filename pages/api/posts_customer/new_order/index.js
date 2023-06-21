@@ -7,7 +7,7 @@ export default async function handler(req,res){
     
     const auth = await authorization(req,res);
 
-    const { id_produk, id_customer, tanggal_selesai, total_harga} = req.body;
+    const { id_produk, id_customer, tanggal_selesai, total_harga } = req.body;
 
     const create = await db('pesanan').insert({
         id_produk,
@@ -16,7 +16,10 @@ export default async function handler(req,res){
         total_harga
     });
 
+    await db('produk').where('id', id_produk).update({ status: 500 });
     const createdData = await db('pesanan');
+    // const updateData = await db('produk')
+
     //where('id', create).first();
     //try this: https://gist.github.com/ntry/8a87ecb8427f044211dc3bfa390ff971#file-bootstrap-tutorial-gulp4-gulpfile-js
     //from discusstion: https://github.com/creativetimofficial/argon-design-system/issues/67

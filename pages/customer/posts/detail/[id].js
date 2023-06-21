@@ -129,25 +129,35 @@ export default function NewOrderAdd(props){
             <div class="box" style={{height: "100vh"}}>
                 <div class="container" style={{backgroundColor:"white", borderRadius: "10px", display: "relative", alignItems: "center", height: "600px", width: "55%", transition: "height 0.2s ease", boxShadow: "0 5px 10px rgba(0, 0, 0, 0.1)", position : "absolute", top:"50%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)"}}>
                     <div class="forms" style={{alignItems: "center", position : "absolute", top:"50%", left : "50%", marginRight: "-50%", transform: "translate(-50%, -50%)", height: "auto", width: "70%"}}>
-                        <h1 style={{position: "relative", fontSize: "27px", fontWeight: 600}}>DETAIL PRODUK</h1>
-                        <center><p>post id: {post.id}</p></center>
+                        <h1 style={{position: "relative", fontSize: "27px", fontWeight: 600}}>DETAIL POSTINGAN</h1>
+                        <p>post id: {post.id}</p>
                         <div class = "collection-img position-relative" style={{height: 150}}>
-                            <center><img src={`${post.url_gambar}`} style={{height: "150px", width: "auto", objectFit: "cover", marginLeft: "auto", marginRight: "auto"}} class = "w-100"></img></center>
-                            <br></br>
+                            <img src={`${post.url_gambar}`} style={{height: "150px", width: "auto", objectFit: "cover"}} class = "w-100"></img>
                         </div>
-                        <br></br>
-                        <div class = "text-center" style ={{paddingLeft: 30}}>
-                            <p class = "text-capitalize my-1">Nama Barang &nbsp;&nbsp;: {post.nama_barang}</p>
-                            <p class = "fw-bold">Harga/item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Rp {post.harga.toLocaleString()}</p>
-                            <p class = "text-capitalize my-1">Total Item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {post.stok}</p>
-                            <p class = "text-capitalize my-1">Estimasi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {post.estimasi} Hari</p>
-                            <p class = "text-capitalize my-1">Batas Tawaran : {post.batas_tawaran}</p>
-                            <p class = "text-capitalize my-1">Deskripsi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {post.deskripsi}</p>
+                        <div class = "text-center">
+                            <p class = "text-capitalize my-1">NAMA: {post.nama_barang}</p>
+                            <p class = "fw-bold">HARGA/ITEM: Rp {post.harga}</p>
+                            <p class = "text-capitalize my-1">TOTAL ITEM: {post.stok}</p>
+                            <p class = "text-capitalize my-1">TOTAL HARGA: {(post.stok * post.harga)}</p>
+                            <p class = "text-capitalize my-1">ESTIMASI: {post.estimasi} Hari</p>
+                            <p class = "text-capitalize my-1">BATAS TAWARAN: {post.batas_tawaran}</p>
+                            <p class = "text-capitalize my-1">DESKRIPSI: {post.deskripsi}</p>
                         </div>
-                        <form onSubmit={applyHandler.bind(this)}>
-                            <button type="submit" style={{fontWeight: "20px", border: "none", padding: "8px", color: "#fff", fontSize: "17px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease", width: "100%"}}>Terima Tawaran</button>
-                        </form>
-                        <center><div>Status: {status}</div></center>
+                {/* <form onSubmit={applyHandler.bind(this)}> */}
+                {/* <input defaultValue={post.estimasi} onChange={fieldHandler.bind(this)} name='estimasi' readOnly></input> */}
+                {/* <input defaultValue={post.id} onChange={fieldHandler.bind(this)} name='id_produk'></input> */}
+                {/* <input defaultValue={id_customer} onChange={fieldHandler.bind(this)} name='id_customer'></input> */}
+                {/* <input defaultValue={post.estimasi} onChange={fieldHandler.bind(this)} name='tanggal_selesai'></input> */}
+                <form onSubmit={applyHandler.bind(this)}>
+                    <button type="submit" style={{fontWeight: "20px", border: "none", padding: "8px", color: "#fff", fontSize: "17px", fontWeight: 500, letterSpacing: "1px", borderRadius: "6px", backgroundColor: "#e5345b", cursor: "pointer", transition: "all 0.3s ease", width: "100%"}}>Terima Tawaran</button>
+                </form>
+                
+
+                <center><div>
+                    Status: {status}
+                </div></center>
+                {/* </form> */}
+
                     </div>
                 </div>
             </div>
